@@ -1,20 +1,18 @@
+import { Outlet } from "react-router-dom";
 import "./App.scss";
 import Header from "./components/Header/Header";
-import { Link } from "react-router-dom";
 
 const App = () => {
   return (
-    <div className="app-contrainer">
-      <Header />
-      <div>
-        Test link
-        <div>
-          <button>
-            <Link to="/users">Go to user page</Link>
-          </button>
-          <button>
-            <Link to="/admins">Go to admin page</Link>
-          </button>
+    <div className="app-container">
+      <div className="header-contrainer">
+        <Header />
+      </div>
+      <div className="main-contrainer">
+        <div className="sidenav-contrainer"></div>
+        <div className="app-content">
+          {/* Outlet là tín hiệu cho việc component con đc load ở đây */}
+          <Outlet />
         </div>
       </div>
     </div>
