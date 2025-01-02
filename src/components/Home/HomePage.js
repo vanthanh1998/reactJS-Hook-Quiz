@@ -1,0 +1,5 @@
+const HomePage = (props) => {
+  return <div className="homepage-container">Home component</div>;
+};
+
+export default HomePage;
