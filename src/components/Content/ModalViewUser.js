@@ -3,11 +3,9 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { FcPlus } from "react-icons/fc";
 import React from "react";
-import { toast } from "react-toastify";
-import { putUpdateUser } from "../../sevices/apiServies";
 import _ from "lodash";
 
-const ModalUpdateUser = (props) => {
+const ModalViewUser = (props) => {
   const { show, setShow, dataUpdate } = props;
   const handleClose = () => {
     setShow(false);
@@ -132,4 +130,4 @@ const ModalUpdateUser = (props) => {
   );
 };
 
-export default ModalUpdateUser;
+export default ModalViewUser;
