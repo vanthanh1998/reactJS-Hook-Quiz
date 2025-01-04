@@ -41,19 +41,6 @@ const ModalUpdateUser = (props) => {
     }
   };
 
-  const handleSubmitUpdateUser = async () => {
-    // call api submit data
-    let data = await putUpdateUser(dataUpdate.id, username, role, image);
-    if (data && data.EC === 0) {
-      toast.success(data.EM);
-      handleClose();
-      await props.fetchListUsers();
-    }
-    if (data && data.EC !== 0) {
-      toast.error(data.EM);
-    }
-  };
-
   return (
     <>
       <Modal
@@ -64,7 +51,7 @@ const ModalUpdateUser = (props) => {
         className="modal-add-user"
       >
         <Modal.Header closeButton>
-          <Modal.Title>Update a user</Modal.Title>
+          <Modal.Title>View a user</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form className="row g-3">
@@ -94,6 +81,7 @@ const ModalUpdateUser = (props) => {
                 type="text"
                 className="form-control"
                 value={username}
+                disabled
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>
@@ -102,6 +90,7 @@ const ModalUpdateUser = (props) => {
               <select
                 className="form-select"
                 value={role}
+                disabled
                 onChange={(e) => setRole(e.target.value)}
               >
                 <option value="USER">USER</option>
@@ -109,7 +98,11 @@ const ModalUpdateUser = (props) => {
               </select>
             </div>
             <div className="col-md-12">
-              <label className="form-label label-upload" htmlFor="labelUpload">
+              <label
+                className="form-label label-upload"
+                htmlFor="labelUpload"
+                hidden
+              >
                 <FcPlus />
                 Upload File Image
               </label>
@@ -132,9 +125,6 @@ const ModalUpdateUser = (props) => {
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
-          </Button>
-          <Button variant="primary" onClick={() => handleSubmitUpdateUser()}>
-            Save
           </Button>
         </Modal.Footer>
       </Modal>
