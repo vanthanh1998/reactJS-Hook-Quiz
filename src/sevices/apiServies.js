@@ -27,4 +27,14 @@ const deleteUser = (userID) => {
   return axios.delete("api/v1/participant", { data: { id: userID } }); // delete bắt buộc phải có data:
 };
 
-export { postCreateNewUser, getAllUsers, putUpdateUser, deleteUser };
+const getUserWithPaginate = (page, limit) => {
+  return axios.get(`api/v1/participant?page=${page}&limit=${limit}`);
+};
+
+export {
+  postCreateNewUser,
+  getAllUsers,
+  putUpdateUser,
+  deleteUser,
+  getUserWithPaginate,
+};

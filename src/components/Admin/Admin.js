@@ -18,7 +18,7 @@ const Admin = (props) => {
         <div className="admin-header">
           <FaBars onClick={() => setCollapsed(!collapsed)} />
         </div>
-        <div className="admin-header">
+        <div className="admin-main">
           {/* Outlet là tín hiệu cho việc component con đc load ở đây */}
           <Outlet />
         </div>
