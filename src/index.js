@@ -9,6 +9,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Users from "./components/User/User";
 import Admin from "./components/Admin/Admin";
 import HomePage from "./components/Home/HomePage";
+import ManageUser from "./components/Content/ManageUser";
+import DashBoard from "./components/Content/DashBoard";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -18,10 +20,13 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route index element={<HomePage />} />
+          <Route index element={<HomePage />} /> {/* index=> route default  */}
           <Route path="users" element={<Users />} />
         </Route>
-        <Route path="admin" element={<Admin />} />
+        <Route path="/admin" element={<Admin />}>
+          <Route index element={<DashBoard />} />
+          <Route path="manage-users" element={<ManageUser />} />
+        </Route>
       </Routes>
     </BrowserRouter>
     {/* </React.StrictMode> */}
